@@ -77,6 +77,7 @@ sudo yum install ansible -y
 ```
 
 **Make sure following dependency should also be installed**
+
 **1. python-paramiko**
 paramiko package after installed only we can maintain the older version clients.
 The paramiko transport is provided because many distributions, in particular EL6 and before do not support ControlPersist in their SSH implementations. 
