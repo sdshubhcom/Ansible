@@ -76,16 +76,16 @@ ssh (ip address of the machine).
 sudo yum install ansible -y
 ```
 
-**Make sure following dependency should also be installed : **
-1. python-paramiko
+**Make sure following dependency should also be installed**
+**1. python-paramiko**
 paramiko package after installed only we can maintain the older version clients.
 The paramiko transport is provided because many distributions, in particular EL6 and before do not support ControlPersist in their SSH implementations. 
-This is needed on the Ansible control machine to be reasonably efficient with connections. Thus paramiko is faster for most users on these platforms.
+This is needed on the Ansible control machine to be reasonably efficient with connections. Thus paramiko is faster for most users on these platf**orms.
 
-2. python-httplib2
+**2. python-httplib2**
 This package only helps to monitor the urls via ansible.
 
-3. python2-cryptography 
+**3. python2-cryptography** 
 This package will help you to validate and control all SSL certificates.
 
 11. 9.	Now create your own environment directory named **dev**.
