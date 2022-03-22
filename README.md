@@ -51,11 +51,11 @@ sudo su - ansible
 ```
 8. Generate the key for ansible with the help of command.
 ```
-ssh-keygen.
+ssh-keygen
 ```
 9. From ansible server,from ansible user using ssh-copy-id command exchange the ssh keys to node1,node2 servers.
 
-- For GCP you can give directly name of the VM and for AWS you have to give IP address of the VM.
+- **For GCP you can give directly name of the VM and for AWS you have to give IP address of the VM.**
 
 ```
 ssh-copy-id node1
@@ -63,4 +63,45 @@ ssh-copy-id node1
 ```
 ssh-copy-id node2
 ```
+10. you can check the connection by command 
+```
+ssh (ip address of the machine).
+```
+10. Now install ansible only in the "ansible" server.
 
+- if you use -y you wont be able to see which dependencies packages are getting install. In general, you don’t use -y to avoid unnecessarily installing 
+  of  dependencies packages
+
+```
+sudo yum install ansible -y
+```
+
+**Make sure following dependency should also be installed : **
+1. python-paramiko
+paramiko package after installed only we can maintain the older version clients.
+The paramiko transport is provided because many distributions, in particular EL6 and before do not support ControlPersist in their SSH implementations. 
+This is needed on the Ansible control machine to be reasonably efficient with connections. Thus paramiko is faster for most users on these platforms.
+
+2. python-httplib2
+This package only helps to monitor the urls via ansible.
+
+3. python2-cryptography 
+This package will help you to validate and control all SSL certificates.
+
+11. 9.	Now create your own environment directory named **dev**.
+12. Create **ansible.cfg** file under dev directory using command
+```
+vim ansible.cfg 
+```
+**In ansible.cfg type the following : **
+```
+[defaults]
+inventory=hosts  // hosts is the file name which contains the type of the srevers. You can give any name instead of hosts.
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+```
+- The above part you will get through : **cat /etc/ansible/ansible.cfg**. This will give the sudo access to execute the ansible playbooks.
