@@ -106,3 +106,7 @@ become_user=root
 become_ask_pass=False
 ```
 - The above part you will get through : **cat /etc/ansible/ansible.cfg**. This will give the sudo access to execute the ansible playbooks.
+
+13. Now create a host file **vim hosts** add the ip address of the both the machines. If this directory is empty later if you list all the available servers 
+    it will show an error because it wont be able to find any servers.
+
