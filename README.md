@@ -94,7 +94,7 @@ This package will help you to validate and control all SSL certificates.
 ```
 vim ansible.cfg 
 ```
-**In ansible.cfg type the following : **
+**In ansible.cfg type the following **
 ```
 [defaults]
 inventory=hosts  // hosts is the file name which contains the type of the srevers. You can give any name instead of hosts.
