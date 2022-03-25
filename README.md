@@ -135,4 +135,19 @@ ansible all -m ping
 - **Checking syntax**: ansible-playbook [file name] --syntax-check.
 - **Simulation**: ansible-playbook [file name] -C. it will not actually run the playbook. but it will show what will be the output of the playbook.
 - **Yum list httpd**: it will show the installed packeges.
+- **Service httpd status**: it will show the status of the package.
+- **For troubleshooting**: tailf /var/log/messages it will show the backend process of the tasks.
 
+# Ansible Modules
+
+- **ansible-doc -l**:  will show you the all the modules available.
+- **ansible-doc -l | grep -i [package name]**:  It will list down the specific module that you required you just give the package name all related 
+  modules will be displayed. Giving -i means it will be not case sensitive.
+- **Ansible -doc [module name]**:  it will show all the example related to that package.
+
+# Starting service after installing syntax
+
+![image](https://user-images.githubusercontent.com/99954871/160098937-6873409c-e666-4595-a91b-394ad617860b.png)
+
+- If you execute the same playbook multiple times it will not install the server multiple time sit will only check the whether the package is being 
+  installed or not. There will no such ambiguity. 
