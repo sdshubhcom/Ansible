@@ -94,7 +94,7 @@ This package will help you to validate and control all SSL certificates.
 ```
 vim ansible.cfg 
 ```
-**In ansible.cfg type the following **
+**In ansible.cfg type the following**
 ```
 [defaults]
 inventory=hosts  // hosts is the file name which contains the type of the srevers. You can give any name instead of hosts.
@@ -109,4 +109,30 @@ become_ask_pass=False
 
 13. Now create a host file **vim hosts** add the ip address of the both the machines. If this directory is empty later if you list all the available servers 
     it will show an error because it wont be able to find any servers.
+
+14.	Now to verify use the following commands
+```
+ansible all --list
+```
+```
+ansible all -m ping
+```
+# First Yaml File
+- This should be created in your own directory.
+- Type vim first.yaml/yml
+
+![image](https://user-images.githubusercontent.com/99954871/160097624-52f2ca5e-ab6c-41f2-b899-b1b94e6b8e9b.png)
+
+- **Name**: you can give any name to its just the description what you are doing.
+- **Hosts**: while execution it will go to ansible.cfg file and what file is mentioned in inventory it will go there and these will be check there.
+- **Task**: it defines task that you will perfrom.
+- **Yum**: it is the actual module name from which the server will be installed.
+- **State**: it defines whether to remove, install, stop the server.
+
+**To execute and check for the syntax:**
+
+- **Executing**: ansible-playbook [file name].
+- **Checking syntax**: ansible-playbook [file name] --syntax-check.
+- **Simulation**: ansible-playbook [file name] -C. it will not actually run the playbook. but it will show what will be the output of the playbook.
+- **Yum list httpd**: it will show the installed packeges.
 
