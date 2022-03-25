@@ -151,3 +151,47 @@ ansible all -m ping
 
 - If you execute the same playbook multiple times it will not install the server multiple time sit will only check the whether the package is being 
   installed or not. There will no such ambiguity. 
+
+# Write the one line command for installing the package
+```
+ansible all -m yum -a "name=httpd state=latest".
+```
+```
+ansible all -m service -a “name=httpd state=stopped.”	
+```
+
+# Ansible Tags
+
+- Tags are used for grouping of multiple tasks into one if you call that tag name then only that tasks which are associated with those tags are going to 
+  be executed.
+- Tags are denoted as : -t [tags names] or --tags [tags name].
+
+**Use of tags**: 
+
+![image](https://user-images.githubusercontent.com/99954871/160103068-dd511c4e-614f-4d4b-8a40-a3aa10304b9b.png)
+
+**How to know the tags name without opening the file ?**
+
+- ansible-playbook [file name] --list-tags
+eg :
+
+![image](https://user-images.githubusercontent.com/99954871/160104448-4204ec70-1255-4691-a602-88135bfdc71d.png)
+ 
+It is showing all the tags available in the file.
+
+# How to execute or allowing the specific task to execute without knowing what’s inside the file ?
+
+- ansible-playbook [file name] --step
+- what this command does is it will execute each task and ask you if you want to continue or not.
+
+eg :
+
+![image](https://user-images.githubusercontent.com/99954871/160104878-82ae251d-8a0f-49c6-8df4-7f78dfad0b70.png)
+
+- It will ask for each step to execute or not. Difference between yes and continue is if you give yes  it will again ask for next step to execute or not 
+  but if you give continue it won’t ask any further.
+  
+
+
+
+
